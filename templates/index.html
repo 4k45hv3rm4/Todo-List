@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Todoist</title>
+{% endblock %}
+{% block body %}
+<h1>Task List</h1>
+<div class="card-header">
+    <div class="container-sm">
+
+        {% if tasks|length <1 %}
+            <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Welcome !</h4>
+      <p class="mb-0">Your ToDo List seems empty .Click to Add Task</p>
+    </div>
+
+        {% else %}
+    <div class="container-sm">
+
+      <p class="mb-0">You have {{ tasks|length }} tasks.</p>
+    </div>
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Added</th>
+                    <th>Actions</th>
+                </tr>
+                {% for task in tasks %}
+                    <tr>
+                        <td> {{ task.content }}</td>
+                        <td> {{ task.date_created.date() }}</td>
+                        <td>
+                            <a href="delete/{{ task.id }}" class="btn btn-primary" role="button" aria-pressed="true">DELETE</a>
+                            <br>
+                            <a href="update/{{ task.id }}" class="btn btn-primary" role="button" aria-pressed="true">Update</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+        {% endif %}
+        <form action="/" method="POST">
+            <input class="form-control shadow p-3 mb-5 bg-white rounded " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" type="text" name="content" id="content" placeholder="Enter your task here">
+            <input  type="submit" name="submit" value="Create new Task" class="btn btn-primary">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
