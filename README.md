@@ -3,7 +3,7 @@
 A Basic CRUD web app that allows to Add task, Update , View and Delete Them according to user Conventions  Using Flask-SQLalchemy .
 Models include id, content , Date_created. id uniquely identifies the 
 
-![Preview](https://photos.google.com/photo/AF1QipNUbAYZieq7IIFWFIFGk82jHIHkIUx7YSw3LLqM)
+![Preview](https://ibb.co/Nx27p3x)
 
 ## Getting Started
 
